@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="teix_Odoo_Studio_crm_lead_form_customization" model="ir.ui.view">
+            <field name="name">Odoo Studio: crm.lead.form customization</field>
+            <field name="model">crm.lead</field>
+            <field name="type">form</field>
+            <field name="priority">160</field>
+            <field name="active">True</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                  <xpath expr="//form[1]" position="attributes">
+                    <attribute name="edit">true</attribute>
+                  </xpath>
+                  <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+                    <group name="studio_group_854_1j34igt2f">
+                      <group name="studio_group_854_left" string="Datos ampliados de Prevención">
+                        <field name="teix_servei_prevencio" widget="boolean" string="Servei de prevenció"/>
+                        <field name="teix_alta_pt"/>
+                        <field name="teix_selection_actual" widget="selection_badge" string="Actual" options="{&quot;size&quot;:&quot;sm&quot;}"/>
+                      </group>
+                      <group name="studio_group_854_right"/>
+                    </group>
+                  </xpath>
+                  <xpath expr="//field[@name='lead_properties']" position="attributes">
+                    <attribute name="string">****</attribute>
+                  </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

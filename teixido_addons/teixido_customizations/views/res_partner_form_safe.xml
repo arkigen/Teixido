@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="teix_res_partner_form_safe" model="ir.ui.view">
+            <field name="name">Teixidó: res.partner form (safe)</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="priority">350</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Insert conditional tabs into the main notebook of the partner form -->
+                <xpath expr="//form/sheet/notebook[1]" position="inside">
+                    <!-- Hidden flags to ensure UI evaluation on change -->
+                    <group invisible="1">
+                        <field name="teix_tag_laboral"/>
+                        <field name="teix_tag_fiscal"/>
+                        <field name="teix_tag_asesoria"/>
+                        <field name="teix_tag_prevencion"/>
+                        <field name="teix_tag_juridico"/>
+                    </group>
+
+                    <page string="Laboral" name="teix_tab_laboral" invisible="not teix_tag_laboral">
+                        <group>
+                            <field name="teix_n_de_nominas"/>
+                            <field name="teix_alta_pt"/>
+                            <field name="teix_proveedor_actual"/>
+                        </group>
+                    </page>
+
+                    <page string="Fiscal" name="teix_tab_fiscal" invisible="not teix_tag_fiscal">
+                        <group/>
+                    </page>
+
+                    <page string="Jurídico" name="teix_tab_juridico" invisible="not teix_tag_juridico">
+                        <group/>
+                    </page>
+
+                    <page string="Asesoría" name="teix_tab_asesoria" invisible="not teix_tag_asesoria">
+                        <group/>
+                    </page>
+
+                    <page string="Prevención" name="teix_tab_prevencion" invisible="not teix_tag_prevencion">
+                        <group string="Servicio de Prevención">
+                            <field name="teix_prevenci_activo"/>
+                            <field name="teix_alta_pt"/>
+                            <field name="teix_proveedor_actual"/>
+                            <field name="teix_importe_del_servicio"/>
+                            <field name="teix_spa_notes"/>
+                        </group>
+                    </page>
+
+                    <!-- Otros Servicios: combina servicios Teixidó y otros proveedores -->
+                    <page string="Otros Servicios" name="teix_tab_otros_servicios">
+                        <group>
+                            <group string="Teixidó">
+                                <field name="teix_tei"/>
+                                <field name="teix_pe"/>
+                                <field name="teix_lopd"/>
+                                <field name="teix_cfd"/>
+                                <field name="teix_pl"/>
+                            </group>
+                            <group string="Otros Proveedores">
+                                <field name="teix_re"/>
+                                <field name="teix_kf"/>
+                                <field name="teix_cd"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

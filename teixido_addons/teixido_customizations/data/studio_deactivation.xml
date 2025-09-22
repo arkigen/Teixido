@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Deactivate Studio views -->
+        <function model="ir.ui.view" name="write">
+            <value eval="[ref('studio_customization.odoo_studio_crm_lead_008b8215-92d1-4eaf-9635-cd6d0ed5758e'), {'active': False}]"/>
+        </function>
+        <function model="ir.ui.view" name="write">
+            <value eval="[ref('studio_customization.odoo_studio_crm_lead_1bec0dd5-d1e9-489a-8662-2897b31e0524'), {'active': False}]"/>
+        </function>
+        <function model="ir.ui.view" name="write">
+            <value eval="[ref('studio_customization.odoo_studio_crm_lead_1fd489a2-f259-4ca9-a9ff-a9b4c7c0c1f2'), {'active': False}]"/>
+        </function>
+        <function model="ir.ui.view" name="write">
+            <value eval="[ref('studio_customization.odoo_studio_res_part_4a006725-5eb0-4215-9742-2610e2e7615c'), {'active': False}]"/>
+        </function>
+        <function model="ir.ui.view" name="write">
+            <value eval="[ref('studio_customization.odoo_studio_res_part_7ce9e9a7-46af-4392-b27e-9cd1af897fac'), {'active': False}]"/>
+        </function>
+        <function model="ir.ui.view" name="write">
+            <value eval="[ref('studio_customization.odoo_studio_res_part_8cadf51d-a09d-4bda-9309-e0c4bd4e94d9'), {'active': False}]"/>
+        </function>
+    </data>
+</odoo>
