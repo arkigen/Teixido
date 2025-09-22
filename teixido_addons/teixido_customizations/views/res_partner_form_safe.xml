@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="teix_res_partner_form_safe" model="ir.ui.view">
+            <field name="name">Teixidó: res.partner form (safe)</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="priority">350</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Insert conditional tabs into the main notebook of the partner form -->
+                <xpath expr="//form/sheet/notebook[1]" position="inside">
+                    <!-- Hidden flags to ensure UI evaluation on change -->
+                    <group invisible="1">
+                        <field name="teix_tag_laboral"/>
+                        <field name="teix_tag_fiscal"/>
+                        <field name="teix_tag_asesoria"/>
+                        <field name="teix_tag_prevencion"/>
+                        <field name="teix_tag_juridico"/>
+                        <field name="teix_tag_otros_servicios"/>
+                        <field name="teix_tag_rgpd"/>
+                        <field name="teix_tag_spa_colaboradores"/>
+                        <field name="teix_tag_seguros"/>
+                    </group>
+
+                    <page string="Laboral" name="teix_tab_laboral" invisible="not teix_tag_laboral">
+                        <group>
+                            <field name="teix_n_de_nominas"/>
+                            <field name="teix_alta_pt"/>
+                            <field name="teix_proveedor_actual"/>
+                        </group>
+                        <group string="Notas Laboral" col="1">
+                            <field name="teix_notas_laboral" nolabel="1"/>
+                        </group>
+                    </page>
+
+                    <page string="Fiscal" name="teix_tab_fiscal" invisible="not teix_tag_fiscal">
+                        <group string="Notas Fiscal" col="1">
+                            <field name="teix_notas_fiscal" nolabel="1"/>
+                        </group>
+                    </page>
+
+                    <page string="Jurídico" name="teix_tab_juridico" invisible="not teix_tag_juridico">
+                        <group string="Notas Jurídico" col="1">
+                            <field name="teix_notas_juridico" nolabel="1"/>
+                        </group>
+                    </page>
+
+                    <page string="Asesoría" name="teix_tab_asesoria" invisible="not teix_tag_asesoria">
+                        <group/>
+                    </page>
+
+                    <page string="Prevención" name="teix_tab_prevencion" invisible="not teix_tag_prevencion">
+                        <group>
+                            <group string="Servei de Prevenció">
+                                <field name="teix_prevenci_activo" widget="boolean_toggle"/>
+                                <field name="teix_alta_pt"/>
+                                <field name="teix_proveedor_actual"/>
+                                <field name="teix_importe_del_servicio"/>
+                            </group>
+                            <group string="SPA Observaciones" col="1">
+                                <field name="teix_spa_notes" nolabel="1"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <!-- RGPD -->
+                    <page string="RGPD" name="teix_tab_rgpd" invisible="not teix_tag_rgpd">
+                        <group string="Notas RGPD" col="1">
+                            <field name="teix_notas_rgpd" nolabel="1"/>
+                        </group>
+                    </page>
+
+                    <!-- SPA Colaboradores -->
+                    <page string="SPA Colaboradores" name="teix_tab_spa_colaboradores" invisible="not teix_tag_spa_colaboradores">
+                        <group string="Notas SPA Colaboradores" col="1">
+                            <field name="teix_notas_spa_colaboradores" nolabel="1"/>
+                        </group>
+                    </page>
+
+                    <!-- Seguros -->
+                    <page string="Seguros" name="teix_tab_seguros" invisible="not teix_tag_seguros">
+                        <group string="Notas Seguros" col="1">
+                            <field name="teix_notas_seguros" nolabel="1"/>
+                        </group>
+                    </page>
+
+                    <!-- Otros Servicios: combina servicios Teixidó y otros proveedores -->
+                    <page string="Otros Servicios" name="teix_tab_otros_servicios" invisible="not teix_tag_otros_servicios">
+                        <group>
+                            <group string="Teixidó">
+                                <field name="teix_tei" widget="boolean_toggle"/>
+                                <field name="teix_pe" widget="boolean_toggle"/>
+                                <field name="teix_lopd" widget="boolean_toggle"/>
+                                <field name="teix_cfd" widget="boolean_toggle"/>
+                                <field name="teix_pl" widget="boolean_toggle"/>
+                            </group>
+                            <group string="Otros Proveedores">
+                                <field name="teix_re" widget="boolean_toggle"/>
+                                <field name="teix_kf" widget="boolean_toggle"/>
+                                <field name="teix_cd" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
+                <!-- DNI/TIE/NIE en formulario principal: después del contenedor NIF/VIES y con etiqueta, forzando salto de línea -->
+                <xpath expr="//div[@name='vat_vies_container']" position="after">
+                    <field name="teix_dni" invisible="is_company"/>
+                </xpath>
+
+                <!-- DNI/TIE/NIE en subformulario de Contactos: insertar una sola vez tras 'name' -->
+                <xpath expr="//field[@name='child_ids']/form/sheet//field[@name='name']" position="after">
+                    <field name="teix_dni"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

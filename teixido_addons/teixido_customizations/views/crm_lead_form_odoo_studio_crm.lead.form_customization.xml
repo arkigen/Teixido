@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="teix_Odoo_Studio_crm_lead_form_customization" model="ir.ui.view">
+            <field name="name">Odoo Studio: crm.lead.form customization</field>
+            <field name="model">crm.lead</field>
+            <field name="type">form</field>
+            <field name="priority">160</field>
+            <field name="active">True</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                  <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                    <group invisible="1">
+                      <field name="teix_tag_laboral"/>
+                      <field name="teix_tag_fiscal"/>
+                      <field name="teix_tag_asesoria"/>
+                      <field name="teix_tag_prevencion"/>
+                      <field name="teix_tag_juridico"/>
+                      <field name="teix_tag_otros_servicios"/>
+                      <field name="teix_tag_rgpd"/>
+                      <field name="teix_tag_spa_colaboradores"/>
+                      <field name="teix_tag_seguros"/>
+                    </group>
+
+                    <page string="Laboral" name="teix_lead_tab_laboral" invisible="not teix_tag_laboral">
+                      <group>
+                        <field name="teix_n_de_nominas"/>
+                        <field name="teix_alta_pt"/>
+                        <field name="teix_proveedor_actual"/>
+                      </group>
+                      <group string="Notas Laboral" col="1">
+                        <field name="teix_notas_laboral" nolabel="1"/>
+                      </group>
+                    </page>
+
+                    <page string="Fiscal" name="teix_lead_tab_fiscal" invisible="not teix_tag_fiscal">
+                      <group string="Notas Fiscal" col="1">
+                        <field name="teix_notas_fiscal" nolabel="1"/>
+                      </group>
+                    </page>
+
+                    <page string="Jurídico" name="teix_lead_tab_juridico" invisible="not teix_tag_juridico">
+                      <group string="Notas Jurídico" col="1">
+                        <field name="teix_notas_juridico" nolabel="1"/>
+                      </group>
+                    </page>
+
+                    <page string="Asesoría" name="teix_lead_tab_asesoria" invisible="not teix_tag_asesoria">
+                      <group/>
+                    </page>
+
+                    <page string="Prevención" name="teix_lead_tab_prevencion" invisible="not teix_tag_prevencion">
+                      <group>
+                        <group string="Servicio de Prevención">
+                          <field name="teix_servei_prevencio" widget="boolean_toggle"/>
+                          <field name="teix_alta_pt"/>
+                          <field name="teix_proveedor_actual"/>
+                          <field name="teix_importe_del_servicio"/>
+                        </group>
+                        <group string="SPA Observaciones" col="1">
+                          <field name="teix_spa_notes" nolabel="1"/>
+                        </group>
+                      </group>
+                    </page>
+
+                    <page string="RGPD" name="teix_lead_tab_rgpd" invisible="not teix_tag_rgpd">
+                      <group string="Notas RGPD" col="1">
+                        <field name="teix_notas_rgpd" nolabel="1"/>
+                      </group>
+                    </page>
+
+                    <page string="SPA Colaboradores" name="teix_lead_tab_spa_colaboradores" invisible="not teix_tag_spa_colaboradores">
+                      <group string="Notas SPA Colaboradores" col="1">
+                        <field name="teix_notas_spa_colaboradores" nolabel="1"/>
+                      </group>
+                    </page>
+
+                    <page string="Seguros" name="teix_lead_tab_seguros" invisible="not teix_tag_seguros">
+                      <group string="Notas Seguros" col="1">
+                        <field name="teix_notas_seguros" nolabel="1"/>
+                      </group>
+                    </page>
+
+                    <page string="Otros Servicios" name="teix_lead_tab_otros_servicios" invisible="not teix_tag_otros_servicios">
+                      <group>
+                        <group string="Teixidó">
+                          <field name="teix_tei" widget="boolean_toggle"/>
+                          <field name="teix_pe" widget="boolean_toggle"/>
+                          <field name="teix_lopd" widget="boolean_toggle"/>
+                          <field name="teix_cfd" widget="boolean_toggle"/>
+                          <field name="teix_pl" widget="boolean_toggle"/>
+                        </group>
+                        <group string="Otros Proveedores">
+                          <field name="teix_re" widget="boolean_toggle"/>
+                          <field name="teix_kf" widget="boolean_toggle"/>
+                          <field name="teix_cd" widget="boolean_toggle"/>
+                        </group>
+                      </group>
+                    </page>
+                  </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>
