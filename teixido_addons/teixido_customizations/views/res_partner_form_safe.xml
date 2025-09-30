@@ -25,9 +25,7 @@
 
                     <page string="Laboral" name="teix_tab_laboral" invisible="not teix_tag_laboral">
                         <group>
-                            <field name="teix_n_de_nominas"/>
-                            <field name="teix_alta_pt"/>
-                            <field name="teix_proveedor_actual"/>
+                            <!-- Moved teix_n_de_nominas out of this tab below the toggle in main header -->
                         </group>
                         <group string="Notas Laboral" col="1">
                             <field name="teix_notas_laboral" nolabel="1"/>
@@ -102,11 +100,37 @@
                             </group>
                         </group>
                     </page>
+
                 </xpath>
 
-                <!-- DNI/TIE/NIE en formulario principal: después del contenedor NIF/VIES y con etiqueta, forzando salto de línea -->
+                <!-- DNI/TIE/NIE y campos personalizados: después del div vat_vies_container -->
                 <xpath expr="//div[@name='vat_vies_container']" position="after">
                     <field name="teix_dni" invisible="is_company"/>
+                    
+                    <field name="user_id" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
+                    <field name="teix_colaborador" domain="[('category_id.name', 'ilike', 'Colaborador')]" widget="selection"/>
+                    <field name="teix_delegacion" domain="['&amp;', ('type', '=', 'invoice'), '|', ('parent_id.category_id.name', 'ilike', 'TEIXIDÓ'), ('parent_id.category_id.name', 'ilike', 'TEIXIDO ASSOCIATS')]" widget="selection" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                    <field name="teix_servicios_contratados" widget="boolean_toggle"/>
+                    <field name="teix_n_de_nominas"/>
+                </xpath>
+
+                <!-- Notebook Servicios Contratados después del cierre del group principal -->
+                <xpath expr="//page[@name='internal_notes']" position="before">
+                    <page string="Servicios Contratados" name="teix_page_servicios_contratados" invisible="not teix_servicios_contratados">
+                        <group name="teix_servicios_contratados_panel" string="Servicios &amp; Contratos actuales e Historicos" col="1">
+                            <field name="teix_contratos_activos" widget="many2many_tags" options="{'no_create': True}" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+
+                <!-- Insertar Grupo Empresarial debajo de website -->
+                <xpath expr="//field[@name='website']" position="after">
+                    <field name="teix_Grupo_Empresarial"/>
+                </xpath>
+
+                <!-- Mostrar industry_id debajo de category_id sólo para empresas -->
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="industry_id" string="Sector / CNAE" invisible="not is_company" options="{'no_create': True}"/>
                 </xpath>
 
                 <!-- DNI/TIE/NIE en subformulario de Contactos: insertar una sola vez tras 'name' -->

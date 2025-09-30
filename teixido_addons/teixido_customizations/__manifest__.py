@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Teixido Customizations',
-    'version': '17.0.1.0.12',
+    'version': '17.0.1.0.20',
     'summary': 'Migración de personalizaciones de Odoo Studio a código',
     'category': 'Customization',
     'author': 'Arkiphere',

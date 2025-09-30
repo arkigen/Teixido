@@ -25,9 +25,7 @@
 
                     <page string="Laboral" name="teix_lead_tab_laboral" invisible="not teix_tag_laboral">
                       <group>
-                        <field name="teix_n_de_nominas"/>
-                        <field name="teix_alta_pt"/>
-                        <field name="teix_proveedor_actual"/>
+                        <!-- Campos movidos al header en res.partner, aquí se mantienen vacíos -->
                       </group>
                       <group string="Notas Laboral" col="1">
                         <field name="teix_notas_laboral" nolabel="1"/>

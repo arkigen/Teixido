@@ -1,0 +1,353 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: teixido_customizations 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-30 00:00+0000\n"
+"PO-Revision-Date: 2025-09-30 00:00+0000\n"
+"Last-Translator: Archon AI <noreply@arkiphere.com>\n"
+"Language-Team: Català\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_colaborador
+msgid "Colaborador"
+msgstr "Col·laborador"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_delegacion
+msgid "Oficina de Facturación del Cliente"
+msgstr "Oficina de facturació del client"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_servicios_contratados
+msgid "Relación Contratos / Servicios Activos"
+msgstr "Relació Contractes / Serveis Actius"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Servicios Contratados"
+msgstr "Serveis contractats"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Servicios &amp; Contratos actuales e Historicos"
+msgstr "Serveis i Contractes actuals i Històrics"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_n_de_nominas
+msgid "Nº de Trabajadores"
+msgstr "Núm. de treballadors"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_Grupo_Empresarial
+msgid "Pertenece a un Grupo Empresarial"
+msgstr "Pertany a un grup empresarial"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_dni
+msgid "DNI / TIE / NIE"
+msgstr "DNI / TIE / NIE"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_cfd
+msgid "Firman contratos digitalmente con KF"
+msgstr "Firmen contractes digitalment amb KF"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_lopd
+msgid "LOPD Protección de datos"
+msgstr "LOPD Protecció de dades"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_cd
+msgid "Canal de denuncias"
+msgstr "Canal de denúncies"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_re
+msgid "Registra Entrada"
+msgstr "Registra entrada"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_pl
+msgid "Plan de Igualdad"
+msgstr "Pla d'igualtat"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Sector / CNAE"
+msgstr "Sector / CNAE"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Laboral"
+msgstr "Laboral"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Notas Laboral"
+msgstr "Notes Laboral"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Fiscal"
+msgstr "Fiscal"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Notas Fiscal"
+msgstr "Notes Fiscal"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Jurídico"
+msgstr "Jurídic"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Notas Jurídico"
+msgstr "Notes Jurídic"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Asesoría"
+msgstr "Assessoria"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Prevención"
+msgstr "Prevenció"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Servei de Prevenció"
+msgstr "Servei de prevenció"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "SPA Observaciones"
+msgstr "SPA Observacions"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "RGPD"
+msgstr "RGPD"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Notas RGPD"
+msgstr "Notes RGPD"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "SPA Colaboradores"
+msgstr "SPA Col·laboradors"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Notas SPA Colaboradores"
+msgstr "Notes SPA Col·laboradors"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Seguros"
+msgstr "Assegurances"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Notas Seguros"
+msgstr "Notes Assegurances"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Otros Servicios"
+msgstr "Altres Serveis"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Teixidó"
+msgstr "Teixidó"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_res_partner_form_safe
+msgid "Otros Proveedores"
+msgstr "Altres proveïdors"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Laboral"
+msgstr "Laboral"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Notas Laboral"
+msgstr "Notes Laboral"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Fiscal"
+msgstr "Fiscal"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Notas Fiscal"
+msgstr "Notes Fiscal"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Jurídico"
+msgstr "Jurídic"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Notas Jurídico"
+msgstr "Notes Jurídic"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Asesoría"
+msgstr "Assessoria"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Prevención"
+msgstr "Prevenció"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Servicio de Prevención"
+msgstr "Servei de prevenció"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "SPA Observaciones"
+msgstr "SPA Observacions"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "RGPD"
+msgstr "RGPD"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Notas RGPD"
+msgstr "Notes RGPD"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "SPA Colaboradores"
+msgstr "SPA Col·laboradors"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Notas SPA Colaboradores"
+msgstr "Notes SPA Col·laboradors"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Seguros"
+msgstr "Assegurances"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Notas Seguros"
+msgstr "Notes Assegurances"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Otros Servicios"
+msgstr "Altres Serveis"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Teixidó"
+msgstr "Teixidó"
+
+#. module: teixido_customizations
+#: model_terms:ir.ui.view,arch_db:teixido_customizations.teix_Odoo_Studio_crm_lead_form_customization
+msgid "Otros Proveedores"
+msgstr "Altres proveïdors"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_contacto
+msgid "Contacto"
+msgstr "Contacte"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_alta_pt
+msgid "Alta PT"
+msgstr "Alta PT"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_proveedor_actual
+msgid "Proveedor Actual"
+msgstr "Proveïdor actual"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_importe_del_servicio
+msgid "Importe del Servicio"
+msgstr "Import del servei"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_servei_prevencio
+msgid "Servei de prevenció"
+msgstr "Servei de prevenció"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_kf
+msgid "Konfirma"
+msgstr "Konfirma"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_tei
+msgid "TEI 24"
+msgstr "TEI 24"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_res_partner__teix_pe
+msgid "Portal de Empleado "
+msgstr "Portal d'empleat"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_cd
+msgid "Canal de denuncias"
+msgstr "Canal de denúncies"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_tei
+msgid "TEI 24"
+msgstr "TEI 24"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_pe
+msgid "Portal de Empleado "
+msgstr "Portal d'empleat"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_lopd
+msgid "LOPD Protección de datos"
+msgstr "LOPD Protecció de dades"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_cfd
+msgid "Firman contratos digitalmente con KF"
+msgstr "Firmen contractes digitalment amb KF"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_pl
+msgid "Plan de Igualdad"
+msgstr "Pla d'igualtat"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_re
+msgid "Registra Entrada"
+msgstr "Registra entrada"
+
+#. module: teixido_customizations
+#: model:ir.model.fields,field_description:teixido_customizations.field_crm_lead__teix_kf
+msgid "Konfirma"
+msgstr "Konfirma"

@@ -18,11 +18,11 @@ class Res_Partner(models.Model):
     )
 
     teix_cd = fields.Boolean(
-        string='Canal de denúncias',
+        string='Canal de denuncias',
     )
 
     teix_cfd = fields.Boolean(
-        string='Firman contractos digitalment con KF',
+        string='Firman contratos digitalmente con KF',
     )
 
     teix_colaborador = fields.Many2one(
@@ -41,6 +41,7 @@ class Res_Partner(models.Model):
     teix_delegacion = fields.Many2one(
         string='Oficina de Facturación del Cliente',
         comodel_name='res.partner',
+        context={'show_address': False},
     )
 
     teix_dni = fields.Char(
@@ -56,7 +57,7 @@ class Res_Partner(models.Model):
     )
 
     teix_lopd = fields.Boolean(
-        string='LOPD Protecció de datos',
+        string='LOPD Protección de datos',
     )
 
     teix_many2many_field_43n_1j33hkn81 = fields.Many2many(
@@ -97,7 +98,7 @@ class Res_Partner(models.Model):
     )
 
     teix_pl = fields.Boolean(
-        string='Plan deI Igualtat',
+        string='Plan de Igualdad',
     )
 
     teix_prevenci_activo = fields.Boolean(
@@ -110,7 +111,7 @@ class Res_Partner(models.Model):
     )
 
     teix_re = fields.Boolean(
-        string='Resgistra Entrada',
+        string='Registra Entrada',
     )
 
     teix_servicios_contratados = fields.Boolean(
@@ -146,7 +147,7 @@ class Res_Partner(models.Model):
 
     @api.depends('category_id', 'category_id.name')
     def _compute_teix_tag_flags(self):
-        """Compute presence of key tags by name (case-insensitive contains)."""
+        """Compute presence of key tags by name (case-insensitive contains) - supports ES and CA."""
         for partner in self:
             names = set((partner.category_id.mapped('name') or []))
             lowered = {n.lower() for n in names}
@@ -158,14 +159,14 @@ class Res_Partner(models.Model):
             partner.teix_tag_asesoria = has('asesor') or has('asesoría') or has('asesoria')
             partner.teix_tag_prevencion = has('prevenci')
             partner.teix_tag_juridico = has('jurid') or has('juríd')
-            partner.teix_tag_otros_servicios = has('otros servicios') or has('otros')
+            partner.teix_tag_otros_servicios = has('otros servicios') or has('otros') or has('altres serveis') or has('altres')
             partner.teix_tag_rgpd = has('rgpd') or has('lopd') or has('protecci')
-            partner.teix_tag_spa_colaboradores = has('spa colaboradores') or has('colaborador')
-            partner.teix_tag_seguros = has('seguro') or has('seguros')
+            partner.teix_tag_spa_colaboradores = has('spa colaboradores') or has('spa col') or has('colaborador') or has('col·laborador') or has('col-laborador')
+            partner.teix_tag_seguros = has('seguro') or has('seguros') or has('asseguran')
 
     @api.onchange('category_id')
     def _onchange_category_id_update_flags(self):
-        """Ensure booleans reflect current tags immediately in the form UI."""
+        """Ensure booleans reflect current tags immediately in the form UI - supports ES and CA."""
         for partner in self:
             names = set((partner.category_id.mapped('name') or []))
             lowered = {n.lower() for n in names}
@@ -177,16 +178,16 @@ class Res_Partner(models.Model):
             partner.teix_tag_asesoria = has('asesor') or has('asesoría') or has('asesoria')
             partner.teix_tag_prevencion = has('prevenci')
             partner.teix_tag_juridico = has('jurid') or has('juríd')
-            partner.teix_tag_otros_servicios = has('otros servicios') or has('otros')
+            partner.teix_tag_otros_servicios = has('otros servicios') or has('otros') or has('altres serveis') or has('altres')
             partner.teix_tag_rgpd = has('rgpd') or has('lopd') or has('protecci')
-            partner.teix_tag_spa_colaboradores = has('spa colaboradores') or has('colaborador')
-            partner.teix_tag_seguros = has('seguro') or has('seguros')
+            partner.teix_tag_spa_colaboradores = has('spa colaboradores') or has('spa col') or has('colaborador') or has('col·laborador') or has('col-laborador')
+            partner.teix_tag_seguros = has('seguro') or has('seguros') or has('asseguran')
 
     # Ejecuta una vez: migración de datos desde campos de Odoo Studio a teix_*
     def _register_hook(self):
         res = super()._register_hook()
         env = self.env
-        param_key = 'teixido_customizations.data_migrated_v12'
+        param_key = 'teixido_customizations.data_migrated_v13'
         if env['ir.config_parameter'].sudo().get_param(param_key):
             return res
         mapping = [
@@ -205,6 +206,7 @@ class Res_Partner(models.Model):
             ('x_studio_kf', 'teix_kf'),
             ('x_studio_cd', 'teix_cd'),
             ('x_studio_dni', 'teix_dni'),
+            ('x_studio_colaborador', 'teix_colaborador'),
         ]
         # Copiar solo si el destino está vacío/False
         partners = env['res.partner'].sudo().search([])
@@ -215,7 +217,7 @@ class Res_Partner(models.Model):
                     src_val = partner[src]
                     dst_val = partner[dst]
                     if src_val and not dst_val:
-                        vals[dst] = src_val
+                        vals[dst] = src_val.id if isinstance(src_val, models.BaseModel) else src_val
             if vals:
                 partner.write(vals)
         env['ir.config_parameter'].sudo().set_param(param_key, '1')
