@@ -109,7 +109,7 @@
                     
                     <field name="user_id" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
                     <field name="teix_colaborador" domain="[('category_id.name', 'ilike', 'Colaborador')]" widget="selection"/>
-                    <field name="teix_delegacion" domain="['&amp;', ('type', '=', 'invoice'), '|', ('parent_id.category_id.name', 'ilike', 'TEIXIDÓ'), ('parent_id.category_id.name', 'ilike', 'TEIXIDO ASSOCIATS')]" widget="selection" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+                    <field name="teix_delegacion" domain="['&amp;', ('type', '=', 'invoice'), '|', ('parent_id.category_id.name', 'ilike', 'TEIXIDÓ'), ('parent_id.category_id.name', 'ilike', 'TEIXIDO ASSOCIATS')]" widget="selection" context="{'show_only_name': True}" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
                     <field name="teix_servicios_contratados" widget="boolean_toggle"/>
                     <field name="teix_n_de_nominas"/>
                 </xpath>
@@ -123,9 +123,17 @@
                     </page>
                 </xpath>
 
-                <!-- Insertar Grupo Empresarial debajo de website -->
+                <!-- Position Grupo Empresarial below the company name when company_type is Company -->
+                <xpath expr="//div[hasclass('oe_title')]/div[hasclass('o_row')]" position="before">
+                    <div class="o_row" name="teix_company_group_empresarial" invisible="not is_company">
+                        <div class="o_col-6 o_col-lg-4">
+                            <label for="teix_Grupo_Empresarial"/>
+                            <field name="teix_Grupo_Empresarial" options="{'no_create': True, 'no_open': True, 'no_quick_create': True}"/>
+                        </div>
+                    </div>
+                </xpath>
                 <xpath expr="//field[@name='website']" position="after">
-                    <field name="teix_Grupo_Empresarial"/>
+                    <field name="teix_Grupo_Empresarial" invisible="is_company" options="{'no_create': True, 'no_open': True, 'no_quick_create': True}"/>
                 </xpath>
 
                 <!-- Mostrar industry_id debajo de category_id sólo para empresas -->

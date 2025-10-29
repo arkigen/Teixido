@@ -6,6 +6,35 @@ from odoo import models, fields, api
 class Res_Partner(models.Model):
     _inherit = 'res.partner'
     
+    @api.depends('name', 'parent_id')
+    def _compute_display_name(self):
+        """
+        Sobrescribe _compute_display_name (Odoo 17) para mostrar solo el nombre del contacto
+        sin parent_id cuando se accede desde el campo teix_delegacion (context: show_only_name)
+        """
+        if self.env.context.get('show_only_name'):
+            # Cuando se usa el contexto show_only_name, solo mostrar el campo name sin parent_id
+            for partner in self:
+                partner.display_name = partner.name or ''
+        else:
+            super(Res_Partner, self)._compute_display_name()
+    
+    @api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        """
+        Sobrescribe name_search para mostrar solo el nombre del contacto
+        sin parent_id cuando se accede desde el campo teix_delegacion (context: show_only_name)
+        """
+        if self.env.context.get('show_only_name'):
+            # Realizar búsqueda estándar primero
+            if args is None:
+                args = []
+            partners = self.search(args + [('name', operator, name)], limit=limit)
+            # Devolver resultados con solo el campo name
+            return [(partner.id, partner.name) for partner in partners]
+        else:
+            return super(Res_Partner, self).name_search(name=name, args=args, operator=operator, limit=limit)
+    
     # Studio fields migrated to custom module
 
     teix_Grupo_Empresarial = fields.Many2one(
@@ -41,7 +70,6 @@ class Res_Partner(models.Model):
     teix_delegacion = fields.Many2one(
         string='Oficina de Facturación del Cliente',
         comodel_name='res.partner',
-        context={'show_address': False},
     )
 
     teix_dni = fields.Char(
