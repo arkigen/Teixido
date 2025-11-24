@@ -76,8 +76,9 @@ class Res_Partner(models.Model):
         string='DNI / TIE / NIE',
     )
 
-    teix_importe_del_servicio = fields.Integer(
+    teix_importe_del_servicio = fields.Monetary(
         string='Importe del Servicio',
+        currency_field='currency_id',
     )
 
     teix_kf = fields.Boolean(

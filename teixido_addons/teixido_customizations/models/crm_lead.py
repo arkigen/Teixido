@@ -63,7 +63,29 @@ class Crm_Lead(models.Model):
 
     # Otros campos mostrados en pestañas
     teix_n_de_nominas = fields.Integer(related='partner_id.teix_n_de_nominas', readonly=True)
-    teix_importe_del_servicio = fields.Integer(related='partner_id.teix_importe_del_servicio', readonly=True)
+    
+    teix_partner_currency_id = fields.Many2one(
+        comodel_name='res.currency',
+        compute='_compute_teix_partner_currency_id',
+        readonly=True,
+        store=False,
+    )
+    
+    @api.depends('partner_id', 'partner_id.currency_id', 'company_id', 'company_id.currency_id')
+    def _compute_teix_partner_currency_id(self):
+        for lead in self:
+            if lead.partner_id and hasattr(lead.partner_id, 'currency_id') and lead.partner_id.currency_id:
+                lead.teix_partner_currency_id = lead.partner_id.currency_id
+            elif lead.company_id and lead.company_id.currency_id:
+                lead.teix_partner_currency_id = lead.company_id.currency_id
+            else:
+                lead.teix_partner_currency_id = self.env.company.currency_id
+    
+    teix_importe_del_servicio = fields.Monetary(
+        related='partner_id.teix_importe_del_servicio',
+        readonly=True,
+        currency_field='teix_partner_currency_id',
+    )
 
     # Booleans de "Otros Servicios" (solo lectura) 
     teix_tei = fields.Boolean(related='partner_id.teix_tei', readonly=True)
